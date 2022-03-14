@@ -12,7 +12,7 @@ First, the dataset `insurance.csv` was loaded into memory. Before continuing, we
 
 Next, we used `model.matrix()` to create another dataset that uses dummy variables in place of the categorical variables. To split the data we used the `sample()` function and `set.seed()` to 1 we generated row indexes for the training and test sets. 2/3 of the row indexes for the training set and 1/3 for the test set. This allowed us to then create training and test datasets from the dataset created previously. And also we created training and test datasets from the dummy variables.
 
-## Build a multiple linear regression model
+## Build a Multiple Linear Regression Model
 In this section we performed **multiple linear regression** `lm` with variable `charges` as the reponse and the predictors are: `age`, `sex`, `bmi`, `children`, `smoker`, and `region`. We can call `summary()` function to understand the model.
 
  <p align="center">
@@ -41,7 +41,7 @@ From the multiple linear regression model we predicted that the best model will 
 
 Between both models we will use the **LOOCV**. The MSE for this final model was **0.2347613**. In summary, we used the test dataset to compare the predictions to the actual response variable in the test data so we are able to evaluate the model's accuracy.
 
-## Build a regression model tree
+## Build a Regression Tree Model
 Using `tree()` we will build a regression tree model where `charge` will be the response variable and the following variables are the predictors: `age`,`sex`,`bmi`,`children`,`smoker`, and `region`. The `tree()` function is grown by binary recursive partitioning using the repsponse variable in the specified formula and choosing splits from the predictors.
 
 <p align="center">
@@ -64,7 +64,7 @@ We can then find the optimal tree by using `cv.tree()` which runs a k-fold cross
   <img src="https://user-images.githubusercontent.com/58959101/158257922-7452924a-7ec1-4599-9c5b-e4a692d49669.png" /p>
  </p>
  
-## Build a random forest model
+## Build a Random Forest Model
 The next model we built was the **Random Forest** model using the `randomForest()` model. We can see that the MSR and % variance are based on **OOB estimates**, a device to get honest error estimates.
 
  <p align="center">
@@ -83,7 +83,7 @@ Visually seeing the variable importance using the `varImpPlot()` function we can
   <img src="https://user-images.githubusercontent.com/58959101/158259551-5797ce40-b6a1-4fb9-9e99-5cfe263c00de.png" /p>
  </p>
 
-## Build a support vector machine
+## Build a Support Vector Machine
 **Support Vector Machines (SVM)** are supervised learning models with associated learning algorithms that analyze data used for classification and regression analysis. Performing SVM using the `svm()` we then were able to perform a grid search to find the best model's parameters of potential `cost`, `gamma` and `kernel`.
 
  <p align="center">
@@ -92,7 +92,7 @@ Visually seeing the variable importance using the `varImpPlot()` function we can
 
 Applying these parameters to the best model then using the `predict()` function on the test dataset we were able to achieve a **MSE** for the SVM model of **0.2259622**.
 
-## Perform the k-means cluster analysis
+## Perform K-Means Cluster Analysis
 **K-Means Clustering** is a common unsupervised machine learning algorithm for partitioning a given dataset into a set of k groups, where k represents the number of groups pre-specified by the analyst. For the `insurance` dataset we work with the numerical variables: `age`, `bmi`, `children`, and `charges`. We determined the optimal number of clusters using the libraries `cluster` and `facoextra`. Using the `fviz_nbclust()` function the optimal number of clusters is **3**. This means that when k=2, this is considered a good cluster for which the within-cluster variation is small as possible.
 
 <p align="center">
@@ -105,11 +105,15 @@ Now performing `kmeans()` with the optimal number of clusters we can visualize o
   <img src="https://user-images.githubusercontent.com/58959101/158262092-d3d394c6-04c3-489e-8158-88387e3c480b.png" /p>
  </p>
 
-## Build a neural network model
+## Build a Neural Network Model
 For this model we standardized the inputs using the `scale()` function and converted the inputs to a dataframe using the `as.data.frame()` function. We then split the data into train and test datasets. Like other models we were then able to plot, predict and calculate the **MSE** which was **0.6754152**.
 
 ## Conclusion
 In conclusion, we have the following model types we created with their respective MSE. For this data, `insurance` we can suggest that the best model to use is the **Random Forest Model** with a MSE of 0.1780. Our goal is to find the model with the smallest MSE. The smallest MSE will represent that the predicted responses are very close to the true responses. We calculate based on MSE because it takes into consideration of the bias-variance trade off. The random forest model is the best because while achieving a MSE closer to zero, it simultaneously has low variance and low bias which are both non-negative.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/58959101/158262662-55a8b9ae-eabe-4b89-8bab-568f11472cbf.png" /p>
+ </p>
 
 We can use the **Random Forest Model** to explain to clients potential costs could be different for customers. 
 The benefits of using the random forest model are: 
@@ -121,7 +125,3 @@ The benefits of using the random forest model are:
 The disadvantages of using the random forest model are: 
   1. Random Forest creates a lot of trees which means it will use a lot of computational power and resources. The complexity of the model is not great. 
   2. Random Forest require more time to train which means a longer running period.
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/58959101/158262662-55a8b9ae-eabe-4b89-8bab-568f11472cbf.png" /p>
- </p>
