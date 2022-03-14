@@ -1,5 +1,5 @@
 # Predictive-Modeling-with-R
-This project covers the fundamental statistical learning and real world business problem using the R programming language. Using the dataset `insurance.csv` we perform the project objectives to understand how the response variable **charges** is affected by different predictor variables. We will also find out which model best performs for business goals and purposes.
+This project covers the fundamental statistical learning and real world business problem using the R programming language. Using the dataset `insurance.csv` we perform the project objectives to understand how the response variable **charges** is affected by different predictor variables. We will also find out which model best performs for fictitious business goals and purposes.
 
 ## Project Objective
 - Perform data feature selection, feature elimination, feature importance using techniques such as Recursive Feature Elimination (RFE), Principal Component Analysis (PCA), and Random Forest.
