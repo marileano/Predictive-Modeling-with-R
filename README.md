@@ -4,7 +4,7 @@ This project covers the fundamental statistical learning and real world business
 ## Project Objective
 - Perform data feature selection, feature elimination, feature importance using techniques such as Recursive Feature Elimination (RFE), Principal Component Analysis (PCA), and Random Forest.
 - Develop models using supervised, unsupervised, and semi-supervised learning techniques such as decision trees, regression trees, neural networks, and support vector machines.
-- Tune model parameters, estimate prediction eros, and model validation.
+- Tune model parameters, estimate prediction errors, and model validation.
 - Compare and ensemble multiple models in pipeline and automatically select the best model.
 
 ## Data Preparation
